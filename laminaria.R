@@ -29,7 +29,7 @@ heav_stipe <- laminaria %>%
 
 ## Neat but it is always good to try something on your own and something different. This improves your understanding and allows for exploring.
 
-# Overal Mark for day 1 :
+# Overal Mark for day 1 : 8/10 
 
   
              
