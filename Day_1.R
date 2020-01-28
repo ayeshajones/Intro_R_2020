@@ -5,15 +5,15 @@
 # Loading packages
 library(tidyverse)
 
-laminaria <- read_csv("data/laminaria.csv")
+laminaria <- read_csv("data/laminaria.csv") # can also import
 
-# viweing data
+# viewing data
 
 head(laminaria) # first 6 rows
 tail(laminaria) # last 6 rows
 glimpse(laminaria)
-view(laminaria) # opens the data
-names(laminaria) # column names
+view(laminaria) # opens the data 
+names(laminaria) # column names in console
 
 # Tidyverse
 
@@ -22,8 +22,7 @@ lam_sub <- laminaria %>% # Tell R which dataframe we are using
 
 lam_slice <- laminaria %>% 
   select(site, total_length) %>% # Select specific columns first
-  slice(56:78)
-
+  slice(56:78) # selects from row 56 to 78 from site and total_length columns
 lam_kom <- laminaria %>%
   filter(site == "Kommetjie")
 
@@ -31,7 +30,7 @@ laminaria %>% # Tell R which dataset to use
   filter(site == "Kommetjie") %>% # Filter out only records from Kommetjie
   nrow() # Count the number of remaining rows
 
-
+max(stip, na.rm=T)
 
 
 
