@@ -11,18 +11,18 @@ laminaria <- read_csv("data/laminaria.csv") # can also import
 
 head(laminaria) # first 6 rows
 tail(laminaria) # last 6 rows
-glimpse(laminaria)
+glimpse(laminaria) # overview
 view(laminaria) # opens the data 
 names(laminaria) # column names in console
 
 # Tidyverse
 
 lam_sub <- laminaria %>% # Tell R which dataframe we are using
-  select(site, total_length) # Select only specific columns
+  select(site, total_length) # Select only specific columns called lam_sub from laminaria dataset
 
 lam_slice <- laminaria %>% 
   select(site, total_length) %>% # Select specific columns first
-  slice(56:78) # selects from row 56 to 78 from site and total_length columns
+  slice(56:78) # selects from row 56 to 78 from site and total_length columns and saved as lam_slice
 lam_kom <- laminaria %>%
   filter(site == "Kommetjie")
 
