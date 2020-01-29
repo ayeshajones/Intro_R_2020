@@ -29,6 +29,7 @@ ggplot(data = laminaria, aes(x = stipe_mass, y = stipe_length)) +
   geom_point(shape = 21, colour = "blue", fill = "white") +
   labs(x = "Stipe mass (kg)", y = "Stipe length (cm)")
 
+
 # Chapter 5: ggplot
 # Plotting
 
@@ -54,7 +55,7 @@ ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
 
 ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
   geom_point(aes(size = weight)) + # add aes so that size becomes a function, error can be cos you need to remove it
-  geom_smooth(method = "lm", size = 1.2) # chanes size of line
+  geom_smooth(method = "lm", size = 1.2) # changes size of line
 
 ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
   geom_point() +
@@ -65,9 +66,9 @@ ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
 
 # Faceting graphs
 library(tidyverse)
-library(ggpubr) # first run to see if its installed, if nto, install & then run again
+library(ggpubr) # first run to see if its installed, if not, install & then run again
 
-# Create faceted figure i.e. 4 grpahs in 1 panel, counted as same graph
+# Create faceted figure i.e. 4 graphs in 1 panel, counted as same graph
 ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
   geom_point() +
   geom_smooth(method = "lm") + # Note the `+` sign here
