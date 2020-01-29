@@ -32,7 +32,7 @@ laminaria %>% # Tell R which dataset to use
 
 max(stip, na.rm=T)
 
-
+## This script is very neat. Nice going for the first day, keep it up.
 
 
 
