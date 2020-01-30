@@ -10,10 +10,13 @@ library(tidyverse)
 laminaria <- read_csv("data/laminaria.csv") # need to change commas to points in excel (csv)
 
 laminaria <- read_delim("data/laminaria.csv", 
-                            ";", escape_double = FALSE, trim_ws = TRUE) #copid from console,removed plus sign
+                            ";", escape_double = FALSE, trim_ws = TRUE) # copied from console,removed plus sign
 
 laminaria %>% # Chose the dataframe
   summarise(avg_bld_wdt = mean(blade_length)) # Calculate mean blade length
+
+laminaria %>% 
+  summarise(ave_bld_len = mean(blade_length)) # same as above just changed name
 
 laminaria %>% # Tell R that we want to use the 'laminaria' dataframe
   group_by(site) %>% 
@@ -21,14 +24,19 @@ laminaria %>% # Tell R that we want to use the 'laminaria' dataframe
             sd_stp_ln = sd(total_length),   # Create a summary of the sd of the total lengths
             med_stp_ln = median(total_length), # median
             var_stp_ln = var(total_length)) # variance
-            # stipe leghth and total length is the same
+            # stipe lenghth and total length is the same (in the code?)
+# to calculate things from specific columns in a dataframe 
+# we use group_by %>%  summarise (commas for multi calcs)
+# i.e. creates summary (calcs) within those groups (columns)
 
-# Plotting - ggplot function
 
-ggplot(data = laminaria, aes(x = stipe_mass, y = stipe_length)) +
-  geom_point(shape = 21, colour = "blue", fill = "white") +
-  labs(x = "Stipe mass (kg)", y = "Stipe length (cm)")
+# Plotting 
+# ggplot func used to plot graphs
+ggplot(data = laminaria, aes(x = stipe_mass, y = stipe_length)) + # "data" refs to dataset. "aes" to modi. apprnce i.e. select axes to plot
+  geom_point(shape = 21, colour = "blue", fill = "white") + # mod point appr with shape is code 21
+  labs(x = "Stipe mass (kg)", y = "Stipe length (cm)") # label axes
 
+# NOTE: cant use pipe func in ggplot, have to use "+" 
 
 # Chapter 5: ggplot
 # Plotting
@@ -40,7 +48,7 @@ ChickWeight <- datasets::ChickWeight # loads R's in-built dataset,
 # Create a basic figure
 ggplot(data = ChickWeight, aes(x = Time, y = weight)) + # inputting chickweight data
   geom_point() + # creating a pt graph (scatter)
-  geom_line(aes(group = Chick)) # linking this with a line for each chick. 
+  geom_line(aes(group = Chick)) # linking mass points with a line for each chick. 
                                 # same concept as grouping by site
 
 ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) + # same graph but colour of diet column differs
@@ -49,13 +57,16 @@ ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) + # same gr
 
 ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
   geom_point() +
-  geom_smooth(method = "lm") + # lm = linear model, line of best fit?
+  geom_smooth(method = "lm") + # lm = linear model i.e. line of best fit
   theme_bw() # adds black & white border around graph
-# can see e.g. which diet is the best
+# now easier to see e.g. which diet is the best from the graph
 
 ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
   geom_point(aes(size = weight)) + # add aes so that size becomes a function, error can be cos you need to remove it
   geom_smooth(method = "lm", size = 1.2) # changes size of line
+# aes(size = weight) makes the size of the line equal the weight so that heaavier chicks will have a point
+# that appears bigger & vice versa
+
 
 ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
   geom_point() +
@@ -88,7 +99,7 @@ line_1 # run "line_1" seperately to view graph (copy paste name) as a graph imag
 
 lm_1 <- ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
   geom_point() +
-  geom_smooth(method = "gam") +
+  geom_smooth(method = "gam") + # gam?
   labs(x = "Days", y = "Mass (g)")
 lm_1
 
