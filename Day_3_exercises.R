@@ -93,9 +93,9 @@ india_2 <- india_1 + # editing india_1
            size = 5.0, 
            angle = 360, 
            colour = "black")
-india_2
+india_2 <- 
 
-
+# how do you cut out country/province shape in order to inset on a larger map?
 
 
 
