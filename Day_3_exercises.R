@@ -93,11 +93,17 @@ india_2 <- india_1 + # editing india_1
            size = 5.0, 
            angle = 360, 
            colour = "black")
-india_2 <- 
+india_2 
 
 # how do you cut out country/province shape in order to inset on a larger map?
 
+india_3 <- india_2 +
+  north(x.min = 67, x.max = 72, y.min = 16, y.max = 21, # Set location of symbol
+        scale = 1.4, symbol = 16)
+india_3
 
+# Create own palette
+oc_pal <- c("#3D9981", "#308477", "#28706C", "#225D5E", "#1D4A4F", "#19383F", "#14272E")
 
 
 
