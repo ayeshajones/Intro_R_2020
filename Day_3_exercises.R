@@ -6,6 +6,7 @@
 # Load packages
 library(tidyverse)
 library(ggplot2)
+library(ggpubr)
 
 # load datasets
 laminaria <- read_csv("data/laminaria.csv")
@@ -61,6 +62,15 @@ facet_lam
 
 facet_lam + scale_x_continuous(limits = c(0, 6)) # tried to fix scale
 
+# create graphs in one panel
+# Combining graphs into one panel
+Final <- ggarrange(Lam_scatter, lam_dig_histo, Ecklo_scatter, Ecklo_box, 
+          ncol = 2, nrow = 2, # Set number of rows and columns
+          labels = c("A(L)", "B(L)", "C(E)", "D(E)"), # Label each figure
+          common.legend = TRUE) # Create common legend
+Final
+# L = laminaria, E = Ecklonia
+
 ### Mapping
 # Load packages
 library(tidyverse) 
@@ -98,8 +108,8 @@ india_2
 # how do you cut out country/province shape in order to inset on a larger map?
 
 india_3 <- india_2 +
-  north(x.min = 67, x.max = 72, y.min = 16, y.max = 21, # Set location of symbol
-        scale = 1.4, symbol = 16)
+  north(x.min = 67, x.max = 72, y.min = 15, y.max = 20, # Set location of symbol
+        scale = 1.2, symbol = 14)
 india_3
 
 # Create own palette
