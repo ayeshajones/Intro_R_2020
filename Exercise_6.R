@@ -26,16 +26,12 @@ line_1 <- ggplot(data = Airqual, aes(x = Day, y = Temp, colour = Month)) + # inp
     labs(x = "Time (days)", y = "Temperature (°C)")
 line_1 
 
-
-  
-  
 # change month from numbers to names
 # change colour for each month
 # modify legend so that its not continuous
 
 
 ### EXercise 6
-
 
 ggplot(data = Airqual, aes(x = Day, y = Temp, colour = Month)) + 
     geom_point(shape = 17, size = 3, colour = "black", fill = "red") + # change point size to 3 and triangle shapes 
