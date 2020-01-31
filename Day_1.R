@@ -26,11 +26,12 @@ lam_slice <- laminaria %>%
 lam_kom <- laminaria %>%
   filter(site == "Kommetjie")
 
+# arrange largest to smallest and slice? to only get values <100
+
 laminaria %>% # Tell R which dataset to use
   filter(site == "Kommetjie") %>% # Filter out only records from Kommetjie
   nrow() # Count the number of remaining rows
 
-max(stip, na.rm=T)
 
 ## This script is very neat. Nice going for the first day, keep it up.
 
