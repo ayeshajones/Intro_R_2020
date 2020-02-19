@@ -71,7 +71,7 @@ plt1 <- chicks %>%
   ggplot(aes(x = Diet, y = weight)) +
   geom_point(data = grp_stat, aes(x = Diet, y = mean_wt), 
              col = "black", fill = "red", shape = 23, size = 3) +
-  geom_jitter(width = 0.05) + # geom_point() if jitter not required
+  geom_jitter(width = 0.05) + # geom_point() if jitter not required 
   labs(y = "Chicken mass (g)") + 
   theme_pubr()
 
@@ -94,6 +94,7 @@ plt3 <- chicks %>%
   geom_jitter(width = 0.05, fill = "white", col = "blue", shape = 21) +
   labs(y = "Chicken mass (g)") + 
   theme_pubr()
+plt3
 
 plt4 <- chicks %>%
   filter(Time %in% c(10, 21)) %>% 
@@ -105,5 +106,9 @@ plt4 <- chicks %>%
 
 ggarrange(plt1, plt2, plt3, plt4, ncol = 2, nrow = 2, labels = "AUTO")
 
-
+# Can attempt: 
+# Notice how the data summary for chicken weights contained within wt_summary is very similar 
+# to the summary returned for weight when we apply summary(chicks).
+# Please use the summarise() approach and construct a data summary with exactly the same 
+# summary statistics for weight as that which summary() returns.
 
